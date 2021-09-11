@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%block titulo %}
+    <title>Estudiantes</title>
+    {%endblock%}
+    <link rel="stylesheet" href="{% static 'estilos.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    {%block encabezado %}
+    <div class="container-css" style="background-color: yellow;">
+    <header>
+        <h1>Estudiantes</h1>
+            </header>
+            <nav>
+    
+                <ul class="nav  nav-pills nav-justified">
+                    <li class="nav-item">
+                        <a href="{% url 'app1:home' %}" class="badge badge-dark">Home  </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'app1:estudiantes' %}" class="nav-item nav-link active">Estudiantes   </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'app1:administradores' %}" class="badge badge-dark">Administradores  </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'app1:creditos' %}" class="badge badge-dark">Acerca de </a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </div>
+        {%endblock%}
+        {%block tabla %}
+        <div class="alert alert-primary" role="alert">
+            <h1>LISTADO DE ESTUDIANTES</h1>  
+          </div>
+    <div id="container">
+    <div class="pull-left"> </div>
+    <table  class ="table table-striped">
+        <thead class="table-dark"> 
+        <tr>     
+            
+          <th scope="row">  ID  </th>     
+          <th>   Nombre   </th>      
+          <th>   Carrera   </th>      
+          <th>   Semestre   </th>   
+          <th>   Seccion   </th>    
+        
+        </tr>
+    </thead> 
+        <tbody>
+        <tr>     
+          <th>1</th>      
+          <td>Wily Zacarias</td>      
+          <td>Ingenieria en Sistemas</td>      
+          <td>Octavo</td>
+          <td>A</td>
+        </tr>
+
+        <tr>
+            <th>2</th>      
+            <td>Nolberto Lopez</td>      
+            <td>Ingenieria en Sistemas</td>      
+            <td>Octavo</td>
+            <td>A</td>
+        </tr>
+
+        <tr>
+            <th>3</th>      
+            <td>Jack Zacarias</td>      
+            <td>Criminologia</td>      
+            <td>Cuarto</td>
+            <td>B</td>
+        </tr>
+      
+        <tr>
+            <th>4</th>      
+            <td>Ezequiel Zacarias</td>      
+            <td>Criminologia</td>      
+            <td>Cuarto</td>
+            <td>A</td>
+        </tr>
+    </tbody>
+      </table>
+   
+      <div class="clearfix"> </div>
+     
+    </div>
+    {%endblock%}
+    
+    <div class="alert alert-secondary" role="alert">
+        <center>
+            <h1>AGREGAR USUARIOS</h1>   
+        </center>
+    </div>
+
+    <form action="#" method="POST" enctype="multipart/form-data">
+        
+        {% csrf_token %} 
+        {% if error %}
+          <h2>{{error}}</h2>
+          {% else %}
+        <div class="form-group">
+            <div>{{form.nombre.label}} </div>
+            <div>{{form.nombre}} </div>
+            <small id="emailHelp" class="form-text text-muted">De preferencia use un Nombre</small>
+        </div>
+        <div class="form-group">
+            <div>{{form.apellido.label}} </div>
+            <div>{{form.apellido}} </div>
+            <small id="emailHelp" class="form-text text-muted">De preferencia use un Apellido</small>
+        </div>
+        <div class="form-group">
+            <div>{{form.direccion.label}} </div>
+            <div>{{form.direccion}} </div>
+        </div>
+
+        <div class="form-group">
+            <div>{{form.carne.label}} </div>
+            <div>{{form.carne}} </div>
+        </div>
+        <button type="submit" name="enviar">Guardar </button>
+        
+    </form>
+    {% endif %}
+ 
+  <div class="clearfix"> </div>
+  <footer>
+    Wily Zacarias - 0903-18-8589 - UMG
+</footer>
+
+
+
+
+
+
+
+
+</body>
+</html>
