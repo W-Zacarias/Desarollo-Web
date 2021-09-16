@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{%block formAg%}
+{%endblock%}
+{%block tabla%}
+<h1>LISTADO DE ESTUDIANTES</h1> 
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th> Nombre </th>
+            <th> Apellidos </th>
+            <th> Direccion </th>
+            <th> Carne </th>
+        </tr>
+    </thead>
+    
+        {%for estudiantess in object_list %}
+        <tr>
+            <th>{{estudiantess.nombre}}</th>
+            <th>{{estudiantess.apellido}}</th>
+            <th>{{estudiantess.direccion}}</th>
+            <th>{{estudiantess.carne}}</th>
+        </tr>
+        {%endfor%}
+</table>
+{%block VerListado%}
+ 
+  {%endblock%}
+
+{%endblock%}

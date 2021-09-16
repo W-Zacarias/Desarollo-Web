@@ -16,13 +16,15 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from .views import HomeView,CreditosView, FormEstudiantesView, AdministradoresView
+from .views import HomeView,CreditosView, FormEstudiantesView, FormAdministradoresView, ListAdministradores, ListEstudiantes
 
 app_name='app1'
 
 urlpatterns = [
     path('index/', HomeView.as_view(), name='home'),
     path('estudiantes/', FormEstudiantesView.as_view(), name='estudiantes'),
-    path('administradores/', AdministradoresView.as_view(), name='administradores'),
+    path('administradores/', FormAdministradoresView.as_view(), name='administradores'),
     path('creditos/', CreditosView.as_view(), name='creditos'),
+    path('Listado/', ListEstudiantes.as_view(), name='listado'),
+    path('ListadoAdmins/', ListAdministradores.as_view(), name='listadoadmins'),
 ]

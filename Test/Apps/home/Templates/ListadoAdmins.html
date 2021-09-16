@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{%block encabezado%}
+
+    <div class="container-css" style="background-color: yellow;">
+        <header>
+            <h1>Administradores</h1>
+        </header>
+    <nav>
+        
+        <ul class="nav  nav-pills nav-justified">
+            <li class="nav-item">
+                <a href="{% url 'app1:home' %}" class="badge badge-dark">Home  </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'app1:estudiantes' %}" class="badge badge-dark">Estudiantes   </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'app1:administradores' %}" class="nav-item nav-link active">Administradores  </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'app1:creditos' %}" class="badge badge-dark">Acerca de </a>
+            </li>
+            
+        </ul>
+    </nav>
+ 
+{%endblock%}
+
+{%block nomT%}
+{%endblock%}
+
+{%block formAg%}
+{%endblock%}
+
+{%block tabla%}
+<h1>LISTADO DE ADMINISTRADORES</h1> 
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th> Nombre </th>
+            <th> Apellidos </th>
+            <th> Direccion </th>
+            <th> Carne </th>
+        </tr>
+    </thead>
+    
+        {%for administradoress in object_list %}
+        <tr>
+            <th>{{administradoress.nombre}}</th>
+            <th>{{administradoress.apellido}}</th>
+            <th>{{administradoress.direccion}}</th>
+            <th>{{administradoress.carne}}</th>
+        </tr>
+        {%endfor%}
+</table>
+{%block VerListado%}
+ 
+
+  {%endblock%}
+
+{%endblock%}
+{%block ListadoEnc%}
+{%endblock%}

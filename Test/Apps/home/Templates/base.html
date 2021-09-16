@@ -13,6 +13,7 @@
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </head>
+
 <body>
     {%block encabezado %}
     <div class="container-css" style="background-color: yellow;">
@@ -39,72 +40,19 @@
             </nav>
         </div>
         {%endblock%}
-        {%block tabla %}
-        <div class="alert alert-primary" role="alert">
-            <h1>LISTADO DE ESTUDIANTES</h1>  
-          </div>
-    <div id="container">
-    <div class="pull-left"> </div>
-    <table  class ="table table-striped">
-        <thead class="table-dark"> 
-        <tr>     
-            
-          <th scope="row">  ID  </th>     
-          <th>   Nombre   </th>      
-          <th>   Carrera   </th>      
-          <th>   Semestre   </th>   
-          <th>   Seccion   </th>    
-        
-        </tr>
-    </thead> 
-        <tbody>
-        <tr>     
-          <th>1</th>      
-          <td>Wily Zacarias</td>      
-          <td>Ingenieria en Sistemas</td>      
-          <td>Octavo</td>
-          <td>A</td>
-        </tr>
 
-        <tr>
-            <th>2</th>      
-            <td>Nolberto Lopez</td>      
-            <td>Ingenieria en Sistemas</td>      
-            <td>Octavo</td>
-            <td>A</td>
-        </tr>
-
-        <tr>
-            <th>3</th>      
-            <td>Jack Zacarias</td>      
-            <td>Criminologia</td>      
-            <td>Cuarto</td>
-            <td>B</td>
-        </tr>
-      
-        <tr>
-            <th>4</th>      
-            <td>Ezequiel Zacarias</td>      
-            <td>Criminologia</td>      
-            <td>Cuarto</td>
-            <td>A</td>
-        </tr>
-    </tbody>
-      </table>
-   
-      <div class="clearfix"> </div>
-     
-    </div>
-    {%endblock%}
     
+     
+    {%block nomT%}
     <div class="alert alert-secondary" role="alert">
         <center>
-            <h1>AGREGAR USUARIOS</h1>   
+            <h1>ESTUDIANTES</h1>   
         </center>
     </div>
+{%endblock%}
 
-    <form action="#" method="POST" enctype="multipart/form-data">
-        
+{%block formAg %}
+    <form action="#" method="POST" enctype="multipart/form-data"> 
         {% csrf_token %} 
         {% if error %}
           <h2>{{error}}</h2>
@@ -131,19 +79,80 @@
         <button type="submit" name="enviar">Guardar </button>
         
     </form>
+        
     {% endif %}
- 
+    {%endblock%}
+
+    
+    {%block VerListado%}
+    <a class="btn btn-primary" href="{% url 'app1:listado' %}" role="button">Listado Estudiantes</a>
+    {%endblock%}
+    
+{%block ListadoEnc%}
+    <div class="alert alert-primary" role="alert">
+        <h1>LISTADO DE ESTUDIANTES</h1>  
+      </div>
+<div id="container">
+<div class="pull-left"> </div>
+{%endblock%}
+
+
+
+    {%block tabla %}
+<table  class ="table table-striped">
+    <thead class="table-dark"> 
+    <tr>     
+    
+      <th>   Nombre   </th>      
+      <th>   Carrera   </th>      
+      <th>   Semestre   </th>   
+      <th>   Seccion   </th>    
+    
+    </tr>
+</thead> 
+    <tbody>
+    <tr>     
+      <th>1</th>      
+      <td>Wily Zacarias</td>      
+      <td>Ingenieria en Sistemas</td>      
+      <td>Octavo</td>
+      <td>A</td>
+    </tr>
+
+    <tr>
+        <th>2</th>      
+        <td>Nolberto Lopez</td>      
+        <td>Ingenieria en Sistemas</td>      
+        <td>Octavo</td>
+        <td>A</td>
+    </tr>
+
+    <tr>
+        <th>3</th>      
+        <td>Jack Zacarias</td>      
+        <td>Criminologia</td>      
+        <td>Cuarto</td>
+        <td>B</td>
+    </tr>
+  
+    <tr>
+        <th>4</th>      
+        <td>Ezequiel Zacarias</td>      
+        <td>Criminologia</td>      
+        <td>Cuarto</td>
+        <td>A</td>
+    </tr>
+</tbody>
+  </table>
+  {%endblock%}
+  
+  
+
+
   <div class="clearfix"> </div>
   <footer>
     Wily Zacarias - 0903-18-8589 - UMG
 </footer>
-
-
-
-
-
-
-
 
 </body>
 </html>
