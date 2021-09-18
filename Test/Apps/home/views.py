@@ -22,7 +22,7 @@ class FormEstudiantesView(CreateView):
     model=Estudiantes
     form_class=FormEstudiante
     template_name='estudiantes.html'
-    success_url=reverse_lazy('app1:estudiantes')
+    success_url=reverse_lazy('app1:listado')
 
 class ListEstudiantes(ListView):
     template_name='Listado.html'
@@ -35,7 +35,7 @@ class FormAdministradoresView(CreateView):
     model=Administradores
     form_class=FormAdministradores
     template_name='administradores.html'
-    success_url=reverse_lazy('app1:administradores')
+    success_url=reverse_lazy('app1:listadoadmins')
 
 
 class ListAdministradores(ListView):

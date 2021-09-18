@@ -44,7 +44,7 @@
     
      
     {%block nomT%}
-    <div class="alert alert-secondary" role="alert">
+    <div class="alert alert-danger" role="alert">
         <center>
             <h1>ESTUDIANTES</h1>   
         </center>
@@ -52,6 +52,7 @@
 {%endblock%}
 
 {%block formAg %}
+<center>
     <form action="#" method="POST" enctype="multipart/form-data"> 
         {% csrf_token %} 
         {% if error %}
@@ -81,6 +82,7 @@
     </form>
         
     {% endif %}
+</center>
     {%endblock%}
 
     
